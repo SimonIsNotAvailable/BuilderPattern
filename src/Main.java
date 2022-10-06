@@ -18,5 +18,11 @@ public class Main {
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }
+        try {
+            // Не хватает обязательных полей
+            new PersonBuilder().build();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        }
     }
 }

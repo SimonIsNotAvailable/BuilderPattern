@@ -1,4 +1,4 @@
-public class PersonBuilder{
+public class PersonBuilder {
     private Person newPerson;
 
     public PersonBuilder() {
@@ -6,7 +6,7 @@ public class PersonBuilder{
     }
 
     public PersonBuilder setName(String name) {
-        if(newPerson.getName() == null) {
+        if (newPerson.getName() == null) {
             newPerson.setName(name);
         }
         return this;
@@ -28,6 +28,9 @@ public class PersonBuilder{
     }
 
     public Person build() {
+        if (newPerson.getName() == null || newPerson.getSurname() == null) {
+            throw new IllegalStateException("firstname and lastname fields are mandatory");
+        }
         return newPerson;
     }
 }

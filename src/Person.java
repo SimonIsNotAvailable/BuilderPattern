@@ -3,23 +3,29 @@ public class Person {
     private String surname;
     private int age;
     private String address;
+
     public Person() {
     }
 
-    public Person (String name, String surname, int age ) {
+    public Person(String name, String surname) {
         this.name = name;
         this.surname = surname;
-        this.age = age;
     }
 
     public void setName(String name) {
-        if(this.name == null) {
+        if (name == null) {
+            throw new IllegalArgumentException("incorrect value \"name\"");
+        }
+        if (this.name == null) {
             this.name = name;
         }
     }
 
     public void setSurname(String surname) {
-        if(this.surname == null) {
+        if (surname == null) {
+            throw new IllegalArgumentException("incorrect value \"Surname\"");
+        }
+        if (this.surname == null) {
             this.surname = surname;
         }
     }
@@ -43,29 +49,32 @@ public class Person {
     public String getAddress() {
         return address;
     }
-    public void happyBirthday(){
+
+    public void happyBirthday() {
         this.age++;
     }
+
     public boolean hasAge() {
-        if(getAge() != 0 ) {
+        if (getAge() != 0) {
             return true;
         } else
             return false;
     }
 
     public void setAge(int age) {
-        if(age < 0 || age > 100) {
+        if (age < 0 || age > 100) {
             throw new IllegalArgumentException("incorrect age is put");
         }
         this.age = age;
     }
 
     public boolean hasAddress() {
-        if(address == null) {
+        if (address == null) {
             return false;
         }
         return true;
     }
+
     @Override
     public String toString() {
         return name + " " +
@@ -73,6 +82,7 @@ public class Person {
                 age + ", Город: " +
                 address;
     }
+
     public PersonBuilder newChildBuilder() {
 
         PersonBuilder son = new PersonBuilder()
