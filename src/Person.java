@@ -3,10 +3,12 @@ public class Person {
     private String surname;
     private int age;
     private String address;
+    public Person() {
+    }
 
     public Person (String name, String surname, int age ) {
         this.name = name;
-        this.surname= surname;
+        this.surname = surname;
         this.age = age;
     }
 
@@ -52,6 +54,9 @@ public class Person {
     }
 
     public void setAge(int age) {
+        if(age < 0 || age > 100) {
+            throw new IllegalArgumentException("incorrect age is put");
+        }
         this.age = age;
     }
 
@@ -63,14 +68,18 @@ public class Person {
     }
     @Override
     public String toString() {
-        String personInfo =
-                name + " " +
-                        surname + " " +
-                        age + " " + address;
-        return personInfo;
+        return name + " " +
+                surname + ", Возраст: " +
+                age + ", Город: " +
+                address;
     }
     public PersonBuilder newChildBuilder() {
-        return null;
+
+        PersonBuilder son = new PersonBuilder()
+                .setSurname(this.getSurname())
+                .setAddress(this.getAddress())
+                .setAge(0);
+        return son;
     }
 
 }
