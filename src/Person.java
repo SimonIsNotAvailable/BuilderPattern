@@ -4,12 +4,6 @@ public class Person {
     private int age;
     private String address;
 
-    public Person (PersonBuilder personBuilder) {
-        this.name = personBuilder.getName();
-        this.surname = personBuilder.getSurname();
-    }
-    public Person () {
-    }
     public Person (String name, String surname, int age ) {
         this.name = name;
         this.surname= surname;
@@ -22,11 +16,11 @@ public class Person {
         }
     }
 
-//    public void setSurname(String surname) {
-//        if(this.surname == null) {
-//            this.surname = surname;
-//        }
-//    }
+    public void setSurname(String surname) {
+        if(this.surname == null) {
+            this.surname = surname;
+        }
+    }
 
     public void setAddress(String address) {
         this.address = address;
@@ -56,6 +50,11 @@ public class Person {
         } else
             return false;
     }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     public boolean hasAddress() {
         if(address == null) {
             return false;

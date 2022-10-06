@@ -1,47 +1,34 @@
 public class PersonBuilder{
-    private String name;
-    private String surname;
-    private int age;
-    private String address;
+    private Person newPerson;
 
     public PersonBuilder() {
+        newPerson = new Person();
     }
 
-    public void setName(String name) {
-        if(this.name == null) {
-            this.name = name;
+    public PersonBuilder setName(String name) {
+        if(newPerson.getName() == null) {
+            newPerson.setName(name);
         }
+        return this;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public PersonBuilder setSurname(String surname) {
+        newPerson.setSurname(surname);
+        return this;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public PersonBuilder setAge(int age) {
+        newPerson.setAge(age);
+        return this;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public PersonBuilder setAddress(String address) {
+        newPerson.setAddress(address);
+        return this;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public String getAddress() {
-        return address;
-    }
     public Person build() {
-        return new Person (name, surname, age);
+        return newPerson;
     }
 }
 
