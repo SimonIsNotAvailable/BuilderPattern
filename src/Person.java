@@ -55,10 +55,7 @@ public class Person {
     }
 
     public boolean hasAge() {
-        if (getAge() != 0) {
-            return true;
-        } else
-            return false;
+        return getAge() != 0;
     }
 
     public void setAge(int age) {
@@ -69,10 +66,7 @@ public class Person {
     }
 
     public boolean hasAddress() {
-        if (address == null) {
-            return false;
-        }
-        return true;
+        return address != null;
     }
 
     @Override
@@ -85,11 +79,10 @@ public class Person {
 
     public PersonBuilder newChildBuilder() {
 
-        PersonBuilder son = new PersonBuilder()
+        return new PersonBuilder()
                 .setSurname(this.getSurname())
                 .setAddress(this.getAddress())
                 .setAge(0);
-        return son;
     }
 
 }
